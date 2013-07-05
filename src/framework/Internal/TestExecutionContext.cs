@@ -408,7 +408,7 @@ namespace NUnit.Framework.Internal
         }
 #endif
 
-#if !NETCF && !SILVERLIGHT
+#if !NETCF && !SILVERLIGHT && !MONODROID
         /// <summary>
 		/// Controls where Console.Out is directed
 		/// </summary>
@@ -581,7 +581,7 @@ namespace NUnit.Framework.Internal
             this.CurrentUICulture = prior.CurrentUICulture;
 #endif
 
-#if !NETCF && !SILVERLIGHT
+#if !NETCF && !SILVERLIGHT && !MONODROID
             this.Out = prior.Out;
             this.Error = prior.Error;
             this.Tracing = prior.Tracing;

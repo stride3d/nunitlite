@@ -50,7 +50,9 @@ namespace NUnit.Framework.Internal
         /// <summary>Silverlight</summary>
         Silverlight,
         /// <summary>MonoTouch</summary>
-        MonoTouch
+        MonoTouch,
+        /// <summary>MonoDroid</summary>
+        MonoDroid,
 	}
 
 	/// <summary>
@@ -147,6 +149,10 @@ namespace NUnit.Framework.Internal
 #if SILVERLIGHT
                     currentFramework = new RuntimeFramework(
                         RuntimeType.Silverlight, 
+                        new Version(Environment.Version.Major, Environment.Version.Minor));
+#elif MONODROID
+                    currentFramework = new RuntimeFramework(
+                        RuntimeType.MonoDroid,
                         new Version(Environment.Version.Major, Environment.Version.Minor));
 #else
                     Type monoRuntimeType = Type.GetType("Mono.Runtime", false);
