@@ -1915,7 +1915,9 @@ namespace NUnit.Framework
 
         private static void IncrementAssertCount()
         {
-            TestExecutionContext.CurrentContext.IncrementAssertCount();
+            var currentContext = TestExecutionContext.CurrentContext;
+            if (currentContext != null)
+                currentContext.IncrementAssertCount();
         }
 
         #endregion
