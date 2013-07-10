@@ -14,7 +14,7 @@ namespace NUnit.Framework.Internal
 
         static AsyncInvocationRegion()
         {
-            PreserveStackTrace = (Action<Exception>)Delegate.CreateDelegate(typeof(Action<Exception>), PreserveStackTraceMethod);
+            PreserveStackTrace = PreserveStackTraceMethod != null ? (Action<Exception>)Delegate.CreateDelegate(typeof(Action<Exception>), PreserveStackTraceMethod) : null;
         }
 
         private AsyncInvocationRegion()
@@ -85,7 +85,8 @@ at wrapping a non-async method invocation in an async region was done");
                 }
                 catch (Exception e)
                 {
-                    PreserveStackTrace(e);
+                    if (PreserveStackTrace != null)
+                        PreserveStackTrace(e);
                     throw;
                 }
             }
@@ -109,7 +110,8 @@ at wrapping a non-async method invocation in an async region was done");
                 {
                     IList<Exception> innerExceptions = GetAllExceptions(e.InnerException);
 
-                    PreserveStackTrace(innerExceptions[0]);
+                    if (PreserveStackTrace != null)
+                        PreserveStackTrace(innerExceptions[0]);
                     throw innerExceptions[0];
                 }
 
