@@ -25,7 +25,9 @@
 using System;
 using System.IO;
 using System.Runtime.Serialization;
+#if !WinRT
 using System.Runtime.Serialization.Formatters.Binary;
+#endif
 
 namespace NUnit.Framework.Constraints
 {
@@ -35,8 +37,9 @@ namespace NUnit.Framework.Constraints
     /// </summary>
     public class BinarySerializableConstraint : Constraint
     {
+#if !WinRT
         readonly BinaryFormatter serializer = new BinaryFormatter();
-
+#endif
         /// <summary>
         /// Test whether the constraint is satisfied by a given value
         /// </summary>
@@ -51,6 +54,7 @@ namespace NUnit.Framework.Constraints
 
             MemoryStream stream = new MemoryStream();
 
+#if !WinRT
             try
             {
                 serializer.Serialize(stream, actual);
@@ -65,6 +69,9 @@ namespace NUnit.Framework.Constraints
             {
                 return false;
             }
+#else
+            return false;
+#endif
         }
 
         /// <summary>
