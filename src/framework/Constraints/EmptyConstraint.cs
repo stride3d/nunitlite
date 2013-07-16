@@ -38,8 +38,10 @@ namespace NUnit.Framework.Constraints
 			{
                 if (actual is string)
                     return new EmptyStringConstraint();
+#if !WinRT
                 else if (actual is System.IO.DirectoryInfo)
                     return new EmptyDirectoryConstraint();
+#endif
                 else
                     return new EmptyCollectionConstraint();
 			}

@@ -180,8 +180,10 @@ namespace NUnit.Framework.Constraints
             if (expected is Stream && actual is Stream)
                 return StreamsEqual((Stream)expected, (Stream)actual);
 
+#if !WinRT
             if (expected is DirectoryInfo && actual is DirectoryInfo)
                 return DirectoriesEqual((DirectoryInfo)expected, (DirectoryInfo)actual);
+#endif
 
             if (Numerics.IsNumericType(expected) && Numerics.IsNumericType(actual))
                 return Numerics.AreEqual(expected, actual, ref tolerance);
@@ -320,6 +322,7 @@ namespace NUnit.Framework.Constraints
             }
         }
 
+#if !WinRT
         /// <summary>
         /// Method to compare two DirectoryInfo objects
         /// </summary>
@@ -339,6 +342,7 @@ namespace NUnit.Framework.Constraints
             // TODO: Find a cleaner way to do this
             return new SamePathConstraint(expected.FullName).Matches(actual.FullName);
         }
+#endif
 
         private bool StreamsEqual(Stream expected, Stream actual)
         {

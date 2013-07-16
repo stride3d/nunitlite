@@ -27,7 +27,9 @@ using System.Collections.Generic;
 #endif
 using System.IO;
 using System.Reflection;
+#if !WinRT
 using Microsoft.Win32;
+#endif
 
 namespace NUnit.Framework.Internal
 {

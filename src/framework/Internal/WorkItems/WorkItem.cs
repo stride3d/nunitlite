@@ -162,7 +162,7 @@ namespace NUnit.Framework.Internal.WorkItems
         /// </summary>
         public virtual void Execute()
         {
-#if (CLR_2_0 || CLR_4_0) && !NETCF && !SILVERLIGHT
+#if (CLR_2_0 || CLR_4_0) && !NETCF && !SILVERLIGHT && !WinRT
             // Timeout set at a higher level
             int timeout = _context.TestCaseTimeout;
 
@@ -179,7 +179,7 @@ namespace NUnit.Framework.Internal.WorkItems
 #endif
         }
 
-#if (CLR_2_0 || CLR_4_0) && !NETCF && !SILVERLIGHT
+#if (CLR_2_0 || CLR_4_0) && !NETCF && !SILVERLIGHT && !WinRT
         private void RunTestWithTimeout(int timeout)
         {
             Thread thread = new Thread(new ThreadStart(RunTest));

@@ -42,9 +42,9 @@ namespace NUnit.Framework
 		/// current exception</param>
 		public AssertionException(string message, Exception inner) :
 			base(message, inner) 
-		{}
+		{ }
 
-#if !NETCF && !SILVERLIGHT
+#if !NETCF && !SILVERLIGHT && !WinRT
 		/// <summary>
 		/// Serialization Constructor
 		/// </summary>
@@ -52,5 +52,5 @@ namespace NUnit.Framework
 			System.Runtime.Serialization.StreamingContext context) : base(info,context)
 		{}
 #endif
-	}
+    }
 }

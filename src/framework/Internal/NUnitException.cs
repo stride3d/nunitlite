@@ -58,14 +58,14 @@ namespace NUnit.Framework.Internal
 		/// current exception</param>
 		public NUnitException(string message, Exception inner) :
 			base(message, inner) 
-		{}
+		{ }
 
-#if !NETCF && !SILVERLIGHT
+#if !NETCF && !SILVERLIGHT && !WinRT
 		/// <summary>
 		/// Serialization Constructor
 		/// </summary>
 		protected NUnitException(SerializationInfo info, 
 			StreamingContext context) : base(info,context){}
 #endif
-	}
+    }
 }

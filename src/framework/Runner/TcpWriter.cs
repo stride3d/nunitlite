@@ -21,6 +21,8 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ***********************************************************************
 
+#if !WinRT
+
 using System;
 using System.IO;
 using System.Net.Sockets;
@@ -71,3 +73,5 @@ namespace NUnitLite.Runner
         }
     }
 }
+
+#endif
