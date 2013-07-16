@@ -58,6 +58,10 @@ namespace NUnit.Framework.Internal
             {
                 if (currentPlatform == null)
                 {
+                    
+#if WinRT
+                    currentPlatform = new OSPlatform(PlatformID.WinRT, new Version(8,0));
+#else
                     OperatingSystem os = Environment.OSVersion;
 
 #if SILVERLIGHT
@@ -73,6 +77,7 @@ namespace NUnit.Framework.Internal
                     }
                     else
                         currentPlatform = new OSPlatform(os.Platform, os.Version);
+#endif
 #endif
                 }
 
