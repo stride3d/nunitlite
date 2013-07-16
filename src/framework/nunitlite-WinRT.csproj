@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8EFF89C3-88D6-48F6-906E-AD98AF35999F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NUnitLite</RootNamespace>
+    <AssemblyName>nunitlit</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NETFX_CORE;CLR_4_0;WinRT;NUNITLITE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;CLR_4_0;WinRT;NUNITLITE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\ExpectedExceptionData.cs" />
+    <Compile Include="Api\FailureSite.cs" />
+    <Compile Include="Api\IParameterDataSource.cs" />
+    <Compile Include="Api\IPropertyBag.cs" />
+    <Compile Include="Api\ITest.cs" />
+    <Compile Include="Api\ITestAssemblyBuilder.cs" />
+    <Compile Include="Api\ITestAssemblyRunner.cs" />
+    <Compile Include="Api\ITestCaseData.cs" />
+    <Compile Include="Api\ITestCaseSource.cs" />
+    <Compile Include="Api\ITestFilter.cs" />
+    <Compile Include="Api\ITestListener.cs" />
+    <Compile Include="Api\ITestResult.cs" />
+    <Compile Include="Api\IXmlNodeBuilder.cs" />
+    <Compile Include="Api\PropertyEntry.cs" />
+    <Compile Include="Api\ResultState.cs" />
+    <Compile Include="Api\RunState.cs" />
+    <Compile Include="Api\TestOutput.cs" />
+    <Compile Include="Api\TestStatus.cs" />
+    <Compile Include="Api\XmlNode.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Assert.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssertionHelper.cs" />
+    <Compile Include="Assume.cs" />
+    <Compile Include="Attributes\CategoryAttribute.cs" />
+    <Compile Include="Attributes\CombinatorialAttribute.cs" />
+    <Compile Include="Attributes\CultureAttribute.cs" />
+    <Compile Include="Attributes\DataAttribute.cs" />
+    <Compile Include="Attributes\DatapointAttribute.cs" />
+    <Compile Include="Attributes\DatapointsAttribute.cs" />
+    <Compile Include="Attributes\DatapointSourceAttribute.cs" />
+    <Compile Include="Attributes\DescriptionAttribute.cs" />
+    <Compile Include="Attributes\ExpectedExceptionAttribute.cs" />
+    <Compile Include="Attributes\ExplicitAttribute.cs" />
+    <Compile Include="Attributes\IgnoreAttribute.cs" />
+    <Compile Include="Attributes\IncludeExcludeAttribute.cs" />
+    <Compile Include="Attributes\MaxTimeAttribute.cs" />
+    <Compile Include="Attributes\NUnitAttribute.cs" />
+    <Compile Include="Attributes\PairwiseAttribute.cs" />
+    <Compile Include="Attributes\PlatformAttribute.cs" />
+    <Compile Include="Attributes\PropertyAttribute.cs" />
+    <Compile Include="Attributes\RandomAttribute.cs" />
+    <Compile Include="Attributes\RangeAttribute.cs" />
+    <Compile Include="Attributes\RepeatAttribute.cs" />
+    <Compile Include="Attributes\SequentialAttribute.cs" />
+    <Compile Include="Attributes\SetCultureAttribute.cs" />
+    <Compile Include="Attributes\SetUICultureAttribute.cs" />
+    <Compile Include="Attributes\SetUpAttribute.cs" />
+    <Compile Include="Attributes\TearDownAttribute.cs" />
+    <Compile Include="Attributes\TestAttribute.cs" />
+    <Compile Include="Attributes\TestCaseAttribute.cs" />
+    <Compile Include="Attributes\TestCaseSourceAttribute.cs" />
+    <Compile Include="Attributes\TestFixtureAttribute.cs" />
+    <Compile Include="Attributes\TestFixtureSetUpAttribute.cs" />
+    <Compile Include="Attributes\TestFixtureTearDownAttribute.cs" />
+    <Compile Include="Attributes\TheoryAttribute.cs" />
+    <Compile Include="Attributes\TimeoutAttribute.cs" />
+    <Compile Include="Attributes\ValuesAttribute.cs" />
+    <Compile Include="Attributes\ValueSourceAttribute.cs" />
+    <Compile Include="Constraints\AllItemsConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\AndConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\AssignableFromConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\AssignableToConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\AttributeConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\AttributeExistsConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\BasicConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\BinaryConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\BinarySerializableConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\CollectionConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\CollectionContainsConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\CollectionEquivalentConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\CollectionItemsEqualConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\CollectionOrderedConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\CollectionSubsetConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\CollectionTally.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ComparisonAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ComparisonConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Constraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ConstraintBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ConstraintExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ConstraintExpressionBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ConstraintFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ContainsConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\DelayedConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\EmptyCollectionConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\EmptyConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\EmptyDirectoryConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\EmptyStringConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\EndsWithConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\EqualConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\EqualityAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ExactCountConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ExactTypeConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ExceptionTypeConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\FailurePoint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\FalseConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\FloatingPointNumerics.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\GreaterThanConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\GreaterThanOrEqualConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\InstanceOfTypeConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\IResolveConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\LessThanConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\LessThanOrEqualConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\MessageWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\MsgUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\NaNConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\NoItemConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\NotConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\NullConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\NullOrEmptyStringConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Numerics.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\NUnitComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\NUnitEqualityComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Operators\AllOperator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Operators\AndOperator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Operators\AttributeOperator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Operators\BinaryOperator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Operators\CollectionOperator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Operators\ConstraintOperator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Operators\ExactCountOperator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Operators\NoneOperator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Operators\NotOperator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Operators\OrOperator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Operators\PrefixOperator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Operators\PropOperator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Operators\SelfResolvingOperator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Operators\SomeOperator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Operators\ThrowsOperator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Operators\WithOperator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\OrConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\PathConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\PredicateConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\PrefixConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\PropertyConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\PropertyExistsConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\RangeConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\RegexConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ResolvableConstraintExpression.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ReusableConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\SameAsConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\SamePathConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\SamePathOrUnderConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\SomeItemsConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\StartsWithConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\StringConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\SubPathConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\SubstringConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ThrowsConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ThrowsNothingConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\Tolerance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\ToleranceMode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\TrueConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\TypeConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\UniqueItemsConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constraints\XmlSerializableConstraint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Contains.cs" />
+    <Compile Include="Env.cs" />
+    <Compile Include="Extensibility\IParameterDataProvider.cs" />
+    <Compile Include="Extensibility\ISuiteBuilder.cs" />
+    <Compile Include="Extensibility\ITestCaseBuilder.cs" />
+    <Compile Include="Extensibility\ITestCaseProvider.cs" />
+    <Compile Include="GlobalSettings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Guard.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Has.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IExpectException.cs" />
+    <Compile Include="Internal\AssemblyHelper.cs" />
+    <Compile Include="Internal\Builders\CombinatorialStrategy.cs" />
+    <Compile Include="Internal\Builders\CombinatorialTestCaseProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internal\Builders\CombiningStrategy.cs" />
+    <Compile Include="Internal\Builders\DataAttributeTestCaseProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Internal\Builders\DatapointProvider.cs" />
+    <Compile Include="Internal\Builders\NUnitTestCaseBuilder.cs" />
+    <Compile Include="Internal\Builders\NUnitTestFixtureBuilder.cs" />
+    <Compile Include="Internal\Builders\PairwiseStrategy.cs" />
+    <Compile Include="Internal\Builders\ParameterDataProvider.cs" />
+    <Compile Include="Internal\Builders\ProviderCache.cs" />
+    <Compile Include="Internal\Builders\SequentialStrategy.cs" />
+    <Compile Include="Internal\Commands\ApplyChangesToContextCommand.cs" />
+    <Compile Include="Internal\Commands\CommandDecoratorList.cs" />
+    <Compile Include="Internal\Commands\CommandStage.cs" />
+    <Compile Include="Internal\Commands\DelegatingTestCommand.cs" />
+    <Compile Include="Internal\Commands\ExpectedExceptionCommand.cs" />
+    <Compile Include="Internal\Commands\ICommandDecorator.cs" />
+    <Compile Include="Internal\Commands\MaxTimeCommand.cs" />
+    <Compile Include="Internal\Commands\OneTimeSetUpCommand.cs" />
+    <Compile Include="Internal\Commands\OneTimeTearDownCommand.cs" />
+    <Compile Include="Internal\Commands\RepeatedTestCommand.cs" />
+    <Compile Include="Internal\Commands\SetUpTearDownCommand.cs" />
+    <Compile Include="Internal\Commands\SkipCommand.cs" />
+    <Compile Include="Internal\Commands\TestCommand.cs" />
+    <Compile Include="Internal\Commands\TestMethodCommand.cs" />
+    <Compile Include="Internal\Commands\TheoryResultCommand.cs" />
+    <Compile Include="Internal\CultureDetector.cs" />
+    <Compile Include="Internal\ExceptionHelper.cs" />
+    <Compile Include="Internal\Extensibility\ParameterDataProviders.cs" />
+    <Compile Include="Internal\Extensibility\TestCaseProviders.cs" />
+    <Compile Include="Internal\Filters\AndFilter.cs" />
+    <Compile Include="Internal\Filters\CategoryExpression.cs" />
+    <Compile Include="Internal\Filters\CategoryFilter.cs" />
+    <Compile Include="Internal\Filters\NotFilter.cs" />
+    <Compile Include="Internal\Filters\OrFilter.cs" />
+    <Compile Include="Internal\Filters\SimpleCategoryExpression.cs" />
+    <Compile Include="Internal\Filters\SimpleNameFilter.cs" />
+    <Compile Include="Internal\IApplyToContext.cs" />
+    <Compile Include="Internal\IApplyToTest.cs" />
+    <Compile Include="Internal\InvalidTestFixtureException.cs" />
+    <Compile Include="Internal\MethodHelper.cs" />
+    <Compile Include="Internal\NUnitException.cs" />
+    <Compile Include="Internal\NUnitLiteTestAssemblyBuilder.cs" />
+    <Compile Include="Internal\NUnitLiteTestAssemblyRunner.cs" />
+    <Compile Include="Internal\OSPlatform.cs" />
+    <Compile Include="Internal\ParameterSet.cs" />
+    <Compile Include="Internal\PlatformHelper.cs" />
+    <Compile Include="Internal\PropertyBag.cs" />
+    <Compile Include="Internal\PropertyNames.cs" />
+    <Compile Include="Internal\RandomGenerator.cs" />
+    <Compile Include="Internal\Randomizer.cs" />
+    <Compile Include="Internal\Reflect.cs" />
+    <Compile Include="Internal\Results\TestCaseResult.cs" />
+    <Compile Include="Internal\Results\TestResult.cs" />
+    <Compile Include="Internal\Results\TestSuiteResult.cs" />
+    <Compile Include="Internal\RuntimeFramework.cs" />
+    <Compile Include="Internal\StackFilter.cs" />
+    <Compile Include="Internal\StringUtil.cs" />
+    <Compile Include="Internal\TestExecutionContext.cs" />
+    <Compile Include="Internal\TestFilter.cs" />
+    <Compile Include="Internal\TestFixtureBuilder.cs" />
+    <Compile Include="Internal\TestListener.cs" />
+    <Compile Include="Internal\Tests\ParameterizedFixtureSuite.cs" />
+    <Compile Include="Internal\Tests\ParameterizedMethodSuite.cs" />
+    <Compile Include="Internal\Tests\Test.cs" />
+    <Compile Include="Internal\Tests\TestAssembly.cs" />
+    <Compile Include="Internal\Tests\TestFixture.cs" />
+    <Compile Include="Internal\Tests\TestMethod.cs" />
+    <Compile Include="Internal\Tests\TestSuite.cs" />
+    <Compile Include="Internal\TextMessageWriter.cs" />
+    <Compile Include="Internal\ThreadUtility.cs" />
+    <Compile Include="Internal\TypeHelper.cs" />
+    <Compile Include="Internal\WorkItems\CompositeWorkItem.cs" />
+    <Compile Include="Internal\WorkItems\SimpleWorkItem.cs" />
+    <Compile Include="Internal\WorkItems\WorkItem.cs" />
+    <Compile Include="Internal\WorkItems\WorkItemState.cs" />
+    <Compile Include="Is.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Iz.cs" />
+    <Compile Include="ListMapper.cs" />
+    <Compile Include="MessageMatch.cs" />
+    <Compile Include="ObjectList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinRTAdaptation\BindingFlags.cs" />
+    <Compile Include="WinRTAdaptation\ICustomAttributeProvider.cs" />
+    <Compile Include="WinRTAdaptation\PlatformID.cs" />
+    <Compile Include="Runner\CommandLineOptions.cs" />
+    <Compile Include="Runner\ConsoleWriter.cs" />
+    <Compile Include="Runner\DebugWriter.cs" />
+    <Compile Include="Runner\OutputWriters\NUnit2XmlOutputWriter.cs" />
+    <Compile Include="Runner\OutputWriters\NUnit3XmlOutputWriter.cs" />
+    <Compile Include="Runner\OutputWriters\OutputWriter.cs" />
+    <Compile Include="Runner\ResultReporter.cs" />
+    <Compile Include="Runner\ResultSummary.cs" />
+    <Compile Include="Runner\TcpWriter.cs" />
+    <Compile Include="Runner\TextUI.cs" />
+    <Compile Include="WinRTAdaptation\SerializableAttribute.cs" />
+    <Compile Include="SpecialValue.cs" />
+    <Compile Include="TestCaseData.cs" />
+    <Compile Include="TestContext.cs" />
+    <Compile Include="Throws.cs" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
