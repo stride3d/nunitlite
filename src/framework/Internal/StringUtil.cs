@@ -20,6 +20,9 @@ namespace NUnit.Framework.Internal
 #if SILVERLIGHT
             StringComparison comparison = ignoreCase ? StringComparison.InvariantCultureIgnoreCase : StringComparison.InvariantCulture;
             return string.Compare(strA, strB, comparison);
+#elif WinRT
+            var comparison = ignoreCase ? StringComparison.CurrentCultureIgnoreCase : StringComparison.CurrentCulture;
+            return string.Compare(strA, strB, comparison);
 #else
             return string.Compare(strA, strB, ignoreCase);
 #endif
