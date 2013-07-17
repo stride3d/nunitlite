@@ -1,4 +1,4 @@
-﻿#if WinRT
+﻿#if NETFX_CORE
 
 using System;
 
