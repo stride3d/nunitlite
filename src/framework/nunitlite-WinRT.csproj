@@ -557,6 +557,8 @@
     <Compile Include="ObjectList.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Reflection\TypeExtension.cs" />
+    <Compile Include="Reflection\TypeInfoEx.cs" />
     <Compile Include="Runner\CommandLineOptions.cs" />
     <Compile Include="Runner\ConsoleWriter.cs" />
     <Compile Include="Runner\DebugWriter.cs" />
@@ -572,7 +574,6 @@
     <Compile Include="TestContext.cs" />
     <Compile Include="Throws.cs" />
     <Compile Include="WinRT\BindingFlags.cs" />
-    <Compile Include="WinRT\ICustomAttributeProvider.cs" />
     <Compile Include="WinRT\PlatformID.cs" />
     <Compile Include="WinRT\SerializableAttribute.cs" />
   </ItemGroup>

@@ -45,7 +45,7 @@ namespace NUnit.Framework.Constraints
         public override bool Matches(object actual)
         {
             this.actual = actual;
-            return actual != null && actual.GetType().IsAssignableFrom(expectedType);
+            return actual != null && actual.GetType().GetTypeInfoEx().IsAssignableFrom(expectedType.GetTypeInfoEx());
         }
 
         /// <summary>

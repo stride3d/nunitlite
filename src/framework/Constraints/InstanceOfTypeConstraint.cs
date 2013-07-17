@@ -49,7 +49,7 @@ namespace NUnit.Framework.Constraints
         public override bool Matches(object actual)
         {
             this.actual = actual;
-            return actual != null && expectedType.IsInstanceOfType(actual);
+            return actual != null && expectedType.GetTypeInfoEx().IsInstanceOfType(actual);
         }
 
         /// <summary>

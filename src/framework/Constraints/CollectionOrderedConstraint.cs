@@ -120,7 +120,7 @@ namespace NUnit.Framework.Constraints
 
                 if (this.propertyName != null)
                 {
-                    PropertyInfo prop = obj.GetType().GetProperty(propertyName);
+                    PropertyInfo prop = obj.GetType().GetTypeInfoEx().GetProperty(propertyName);
                     objToCompare = prop.GetValue(obj, null);
                     if (objToCompare == null)
                         throw new ArgumentNullException("actual", "Null property value at index " + index.ToString());

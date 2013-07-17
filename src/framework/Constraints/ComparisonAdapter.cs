@@ -131,10 +131,10 @@ namespace NUnit.Framework.Constraints
             /// </summary>
             public override int Compare(object expected, object actual)
             {
-                if (!typeof(T).IsAssignableFrom(expected.GetType()))
+                if (!typeof(T).GetTypeInfoEx().IsAssignableFrom(expected.GetType().GetTypeInfoEx()))
                     throw new ArgumentException("Cannot compare " + expected.ToString());
 
-                if (!typeof(T).IsAssignableFrom(actual.GetType()))
+                if (!typeof(T).GetTypeInfoEx().IsAssignableFrom(actual.GetType().GetTypeInfoEx()))
                     throw new ArgumentException("Cannot compare to " + actual.ToString());
 
                 return comparer.Compare((T)expected, (T)actual);
@@ -158,10 +158,10 @@ namespace NUnit.Framework.Constraints
             /// </summary>
             public override int Compare(object expected, object actual)
             {
-                if (!typeof(T).IsAssignableFrom(expected.GetType()))
+                if (!typeof(T).GetTypeInfoEx().IsAssignableFrom(expected.GetType().GetTypeInfoEx()))
                     throw new ArgumentException("Cannot compare " + expected.ToString());
 
-                if (!typeof(T).IsAssignableFrom(actual.GetType()))
+                if (!typeof(T).GetTypeInfoEx().IsAssignableFrom(actual.GetType().GetTypeInfoEx()))
                     throw new ArgumentException("Cannot compare to " + actual.ToString());
 
                 return comparison.Invoke((T)expected, (T)actual);

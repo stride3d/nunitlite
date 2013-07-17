@@ -61,7 +61,7 @@ namespace NUnit.Framework.Constraints
             if (actualType == null)
                 actualType = actual.GetType();
 
-            PropertyInfo property = actualType.GetProperty(name,
+            PropertyInfo property = actualType.GetTypeInfoEx().GetProperty(name,
                 BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.GetProperty);
 
             if (property == null)

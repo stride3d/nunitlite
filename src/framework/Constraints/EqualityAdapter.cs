@@ -124,16 +124,16 @@ namespace NUnit.Framework.Constraints
             /// </summary>
             public override bool CanCompare(object x, object y)
             {
-                return typeof(T).IsAssignableFrom(x.GetType())
-                    && typeof(T).IsAssignableFrom(y.GetType());
+                return typeof(T).GetTypeInfoEx().IsAssignableFrom(x.GetType().GetTypeInfoEx())
+                    && typeof(T).GetTypeInfoEx().IsAssignableFrom(y.GetType().GetTypeInfoEx());
             }
 
             protected void ThrowIfNotCompatible(object x, object y)
             {
-                if (!typeof(T).IsAssignableFrom(x.GetType()))
+                if (!typeof(T).GetTypeInfoEx().IsAssignableFrom(x.GetType().GetTypeInfoEx()))
                     throw new ArgumentException("Cannot compare " + x.ToString());
 
-                if (!typeof(T).IsAssignableFrom(y.GetType()))
+                if (!typeof(T).GetTypeInfoEx().IsAssignableFrom(y.GetType().GetTypeInfoEx()))
                     throw new ArgumentException("Cannot compare " + y.ToString());
             }
         }

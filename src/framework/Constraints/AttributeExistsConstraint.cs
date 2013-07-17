@@ -22,6 +22,7 @@
 // ***********************************************************************
 
 using System;
+using System.Linq;
 
 namespace NUnit.Framework.Constraints
 {
@@ -42,7 +43,7 @@ namespace NUnit.Framework.Constraints
         {
             this.expectedType = type;
 
-            if (!typeof(Attribute).IsAssignableFrom(expectedType))
+            if (!typeof(Attribute).GetTypeInfoEx().IsAssignableFrom(expectedType.GetTypeInfoEx()))
                 throw new ArgumentException(string.Format(
                     "Type {0} is not an attribute", expectedType), "type");
         }
@@ -55,6 +56,9 @@ namespace NUnit.Framework.Constraints
         public override bool Matches(object actual)
         {
             this.actual = actual;
+#if NETFX_CORE
+            return actual.GetType().GetTypeInfoEx().GetCustomAttributes(expectedType, true).Any();
+#else
             System.Reflection.ICustomAttributeProvider attrProvider =
                 actual as System.Reflection.ICustomAttributeProvider;
 
@@ -62,6 +66,7 @@ namespace NUnit.Framework.Constraints
                 throw new ArgumentException(string.Format("Actual value {0} does not implement ICustomAttributeProvider", actual), "actual");
 
             return attrProvider.GetCustomAttributes(expectedType, true).Length > 0;
+#endif
         }
 
         /// <summary>

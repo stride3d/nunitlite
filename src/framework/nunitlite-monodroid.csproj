@@ -73,6 +73,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -332,6 +333,8 @@
     <Compile Include="ListMapper.cs" />
     <Compile Include="MessageMatch.cs" />
     <Compile Include="ObjectList.cs" />
+    <Compile Include="Reflection\TypeExtension.cs" />
+    <Compile Include="Reflection\TypeInfoEx.cs" />
     <Compile Include="Runner\CommandLineOptions.cs" />
     <Compile Include="Runner\ConsoleWriter.cs" />
     <Compile Include="Runner\DebugWriter.cs" />

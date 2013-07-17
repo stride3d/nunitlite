@@ -46,7 +46,7 @@ namespace NUnit.Framework.Constraints
         {
             this.expectedType = type;
 
-            if (!typeof(Attribute).IsAssignableFrom(expectedType))
+            if (!typeof(Attribute).GetTypeInfoEx().IsAssignableFrom(expectedType.GetTypeInfoEx()))
                 throw new ArgumentException(string.Format(
                     "Type {0} is not an attribute", expectedType), "type");
         }
@@ -59,6 +59,9 @@ namespace NUnit.Framework.Constraints
         public override bool Matches(object actual)
         {
             this.actual = actual;
+#if NETFX_CORE
+            Attribute[] attrs = (Attribute[])actual.GetType().GetTypeInfoEx().GetCustomAttributes(expectedType, true);
+#else
             System.Reflection.ICustomAttributeProvider attrProvider =
                 actual as System.Reflection.ICustomAttributeProvider;
 
@@ -66,6 +69,7 @@ namespace NUnit.Framework.Constraints
                 throw new ArgumentException(string.Format("Actual value {0} does not implement ICustomAttributeProvider", actual), "actual");
 
             Attribute[] attrs = (Attribute[])attrProvider.GetCustomAttributes(expectedType, true);
+#endif
             if (attrs.Length == 0)
                 throw new ArgumentException(string.Format("Attribute {0} was not found", expectedType), "actual");
 

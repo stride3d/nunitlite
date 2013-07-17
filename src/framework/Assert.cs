@@ -602,7 +602,7 @@ namespace NUnit.Framework
         {
             Exception caughtException = null;
 
-#if NET_4_5
+#if NET_4_5 && !NETFX_CORE
             if (AsyncInvocationRegion.IsAsyncOperation(code))
             {
                 using (AsyncInvocationRegion region = AsyncInvocationRegion.Create(code))
@@ -621,7 +621,7 @@ namespace NUnit.Framework
             }
             else
 #endif
-                try
+            try
             {
                 code();
             }
@@ -1915,9 +1915,11 @@ namespace NUnit.Framework
 
         private static void IncrementAssertCount()
         {
+#if !NUNITLITE_PARTIAL
             var currentContext = TestExecutionContext.CurrentContext;
             if (currentContext != null)
                 currentContext.IncrementAssertCount();
+#endif
         }
 
         #endregion

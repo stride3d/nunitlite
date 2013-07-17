@@ -3,3 +3,4 @@
 bin/*
 obj/
 src/NUnitLite.MonoDroid.Example/Resources/Resource.Designer.cs
+bin/

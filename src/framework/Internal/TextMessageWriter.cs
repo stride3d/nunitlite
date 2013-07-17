@@ -278,7 +278,7 @@ namespace NUnit.Framework.Internal
                 WriteDecimal((decimal)val);
 			else if (val is DateTime)
 				WriteDateTime((DateTime)val);
-            else if (val.GetType().IsValueType)
+            else if (val.GetType().GetTypeInfoEx().IsValueType)
                 Write(Fmt_ValueType, val);
             else
                 Write(Fmt_Default, val);

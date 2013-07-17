@@ -223,16 +223,16 @@ namespace NUnit.Framework.Constraints
 
         private static Type[] GetEquatableGenericArguments(Type type)
         {
-            foreach (Type @interface in type.GetInterfaces())
-                if (@interface.IsGenericType && @interface.GetGenericTypeDefinition().Equals(typeof(IEquatable<>)))
-                    return @interface.GetGenericArguments();
+            foreach (Type @interface in type.GetTypeInfoEx().ImplementedInterfaces)
+                if (@interface.GetTypeInfoEx().IsGenericType && @interface.GetGenericTypeDefinition().Equals(typeof(IEquatable<>)))
+                    return @interface.GetTypeInfoEx().GenericTypeArguments;
 
             return new Type[0];
         }
 
         private static bool InvokeFirstIEquatableEqualsSecond(object first, object second)
         {
-            MethodInfo equals = typeof(IEquatable<>).MakeGenericType(second.GetType()).GetMethod("Equals");
+            MethodInfo equals = typeof(IEquatable<>).MakeGenericType(second.GetType()).GetTypeInfoEx().GetMethod("Equals");
 
             return (bool)equals.Invoke(first, new object[] { second });
         }

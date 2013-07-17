@@ -11,6 +11,8 @@ namespace System.Reflection
         Static = 8,
         Public = 0x10,
         NonPublic = 0x20,
+        GetProperty = 0x1000,
+        SetProperty = 0x2000,
     }
 }
 
