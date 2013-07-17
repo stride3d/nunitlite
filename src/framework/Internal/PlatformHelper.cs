@@ -221,9 +221,11 @@ namespace NUnit.Framework.Internal
                 case "XBOX":
                     isSupported = os.IsXbox;
                     break;
+#if !WINDOWS_PHONE
                 case "MACOSX":
                     isSupported = os.IsMacOSX;
                     break;
+#endif
 #endif
 
 			default:

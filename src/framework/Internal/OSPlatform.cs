@@ -243,6 +243,7 @@ namespace NUnit.Framework.Internal
             get { return platform == PlatformID.Xbox; }
         }
 
+#if !WINDOWS_PHONE
         /// <summary>
         /// Return true if the platform is MacOSX
         /// </summary>
@@ -250,6 +251,7 @@ namespace NUnit.Framework.Internal
         {
             get { return platform == PlatformID.MacOSX; }
         }
+#endif
 #endif
 
         /// <summary>

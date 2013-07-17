@@ -12,7 +12,7 @@ namespace NUnit.Framework
         /// </summary>
         public static readonly Type[] EmptyTypes = new Type[0];
 
-#if WinRT
+#if NETFX_CORE
         private readonly TypeInfo thisInfo;
 
         internal TypeInfoEx(TypeInfo info)
@@ -58,7 +58,7 @@ namespace NUnit.Framework
 
         #region MemberInfo
         // MemberInfo
-#if !WinRT
+#if !NETFX_CORE
         public IEnumerable<CustomAttributeData> CustomAttributes { get { return CustomAttributeData.GetCustomAttributes(thisInfo); } }
 #else
         public IEnumerable<CustomAttributeData> CustomAttributes { get { return thisInfo.CustomAttributes; } }

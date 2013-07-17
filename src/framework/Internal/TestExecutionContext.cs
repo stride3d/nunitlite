@@ -34,7 +34,7 @@ using System.Security.Principal;
 #endif
 
 using NUnit.Framework.Api;
-#if !NETCF && !WinRT
+#if !NETCF && !NETFX_CORE
 using System.Runtime.Remoting.Messaging;
 #endif
 
