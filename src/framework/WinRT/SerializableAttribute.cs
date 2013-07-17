@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if WinRT
+
+using System;
 
 namespace NUnit.Framework 
 {
@@ -6,3 +8,5 @@ namespace NUnit.Framework
     {
     }
 }
+
+#endif
