@@ -62,7 +62,7 @@ namespace NUnit.Framework.Constraints
         /// </summary>
         public override void WriteDescriptionTo(MessageWriter writer)
         {
-#if NETCF_2_0
+#if NETCF_2_0 || NETFX_CORE
             writer.Write("value matching predicate");
 #else
             writer.WritePredicate("value matching");
