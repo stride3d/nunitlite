@@ -1,4 +1,5 @@
-﻿
+﻿#if WinRT
+
 namespace NUnit.Framework 
 {
     public enum PlatformID
@@ -14,3 +15,5 @@ namespace NUnit.Framework
         UnixMono = 128,
     }
 }
+
+#endif
