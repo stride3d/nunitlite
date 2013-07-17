@@ -21,6 +21,8 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // ***********************************************************************
 
+#if!WinRT
+
 using System;
 using System.IO;
 
@@ -89,3 +91,5 @@ namespace NUnit.Framework.Constraints
         }
     }
 }
+
+#endif
