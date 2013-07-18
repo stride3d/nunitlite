@@ -23,6 +23,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
+    <PlatformTarget>$(Platform)</PlatformTarget>
     <OutputPath>..\..\bin\$(Configuration)\net-winphone</OutputPath>
     <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;CLR_4_0;NETFX_CORE;NUNITLITE</DefineConstants>
     <NoStdLib>true</NoStdLib>

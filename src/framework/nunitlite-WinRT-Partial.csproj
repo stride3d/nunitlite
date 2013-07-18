@@ -17,8 +17,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\bin\$(Configuration)\net-winrt</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NETFX_CORE;CLR_4_0;WinRT;NUNITLITE</DefineConstants>
+    <PlatformTarget>$(Platform)</PlatformTarget>
+    <OutputPath>..\..\bin\$(Configuration)\net-winrt-partial</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NETFX_CORE;CLR_4_0;WinRT;NUNITLITE;NUNITLITE_PARTIAL</DefineConstants>
     <NoWarn>;2008</NoWarn>
     <DebugType>full</DebugType>
     <UseVSHostingProcess>false</UseVSHostingProcess>
@@ -28,11 +29,11 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
-    <DefineConstants>TRACE;NETFX_CORE;CLR_4_0;WinRT;NUNITLITE</DefineConstants>
+    <DefineConstants>TRACE;NETFX_CORE;CLR_4_0;WinRT;NUNITLITE;NUNITLITE_PARTIAL</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
@@ -151,6 +152,7 @@
     <Compile Include="ObjectList.cs" />
     <Compile Include="Internal\StringUtil.cs" />
     <Compile Include="Internal\TextMessageWriter.cs" />
+    <Compile Include="Reflection\CustomAttributeExtensions.cs" />
     <Compile Include="Reflection\TypeExtension.cs" />
     <Compile Include="Reflection\TypeInfoEx.cs" />
   </ItemGroup>

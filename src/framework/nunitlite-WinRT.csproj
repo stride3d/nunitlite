@@ -16,8 +16,9 @@
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
   </PropertyGroup>
   <PropertyGroup>
+    <PlatformTarget>$(Platform)</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\bin\$(Configuration)\net-winrt-partial</OutputPath>
+    <OutputPath>..\..\bin\$(Configuration)\net-winrt</OutputPath>
     <DefineConstants>TRACE;DEBUG;NETFX_CORE;CLR_4_0;WinRT;NUNITLITE</DefineConstants>
     <NoWarn>;2008</NoWarn>
     <DebugType>full</DebugType>
@@ -30,13 +31,12 @@
     <DebugType>pdbonly</DebugType>
     <DefineConstants>TRACE;NETFX_CORE;CLR_4_0;WinRT;NUNITLITE</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Folder Include="Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\ExpectedExceptionData.cs" />
@@ -389,6 +389,10 @@
     </Compile>
     <Compile Include="Contains.cs" />
     <Compile Include="Env.cs" />
+    <Compile Include="Exceptions\AssertionException.cs" />
+    <Compile Include="Exceptions\IgnoreException.cs" />
+    <Compile Include="Exceptions\InconclusiveException.cs" />
+    <Compile Include="Exceptions\SuccessException.cs" />
     <Compile Include="Extensibility\IParameterDataProvider.cs" />
     <Compile Include="Extensibility\ISuiteBuilder.cs" />
     <Compile Include="Extensibility\ITestCaseBuilder.cs" />

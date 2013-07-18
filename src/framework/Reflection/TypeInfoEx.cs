@@ -636,7 +636,7 @@ namespace NUnit.Framework
 
         public Attribute GetCustomAttribute(Type attributeType)
         {
-#if !NET_4_5 || MONODROID
+#if MONODROID || NET_4_0 || NET_3_5
             return Attribute.GetCustomAttribute(thisInfo, attributeType);
 #else
             return thisInfo.GetCustomAttribute(attributeType);
@@ -645,7 +645,7 @@ namespace NUnit.Framework
 
         public IEnumerable<Attribute> GetCustomAttributes(Type attributeType)
         {
-#if !NET_4_5 || MONODROID
+#if MONODROID || NET_4_0 || NET_3_5
             return Attribute.GetCustomAttributes(thisInfo, attributeType);
 #else
             return thisInfo.GetCustomAttributes(attributeType);
@@ -664,7 +664,7 @@ namespace NUnit.Framework
 
         public Attribute GetCustomAttribute(Type attributeType, bool inherit)
         {
-#if !NET_4_5 || MONODROID
+#if MONODROID || NET_4_0 || NET_3_5
             return Attribute.GetCustomAttribute(thisInfo, attributeType, inherit);
 #else
             return thisInfo.GetCustomAttribute(attributeType, inherit);
