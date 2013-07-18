@@ -63,7 +63,8 @@ namespace NUnit.Framework
 		}
 
         #region IApplyToTest Members
-
+        
+#if !NUNITLITE_PARTIAL
         /// <summary>
         /// Modifies a test by adding a description, if not already set.
         /// </summary>
@@ -73,6 +74,7 @@ namespace NUnit.Framework
             if (!test.Properties.ContainsKey(PropertyNames.Description) && description != null)
                 test.Properties.Set(PropertyNames.Description, description);
         }
+#endif
 
         #endregion
     }

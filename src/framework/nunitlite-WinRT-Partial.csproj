@@ -37,9 +37,26 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Folder Include="Internal\Tests\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\RunState.cs" />
     <Compile Include="Assert.cs" />
+    <Compile Include="Attributes\NUnitAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\TestAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\TestFixtureAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\TestFixtureSetUpAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\TestFixtureTearDownAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Constraints\AllItemsConstraint.cs" />
     <Compile Include="Constraints\AndConstraint.cs" />
     <Compile Include="Constraints\AssignableFromConstraint.cs" />
@@ -144,6 +161,7 @@
     <Compile Include="GlobalSettings.cs" />
     <Compile Include="Guard.cs" />
     <Compile Include="Has.cs" />
+    <Compile Include="Internal\IApplyToTest.cs" />
     <Compile Include="Is.cs" />
     <Compile Include="NetFX_Core\BindingFlags.cs" />
     <Compile Include="NetFX_Core\PathExtension.cs" />
@@ -152,7 +170,6 @@
     <Compile Include="ObjectList.cs" />
     <Compile Include="Internal\StringUtil.cs" />
     <Compile Include="Internal\TextMessageWriter.cs" />
-    <Compile Include="Reflection\CustomAttributeExtensions.cs" />
     <Compile Include="Reflection\TypeExtension.cs" />
     <Compile Include="Reflection\TypeInfoEx.cs" />
   </ItemGroup>

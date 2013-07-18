@@ -31,10 +31,12 @@ namespace NUnit.Framework.Internal
     /// </summary>
     public interface IApplyToTest
     {
+#if !NUNITLITE_PARTIAL
         /// <summary>
         /// Modifies a test as defined for the specific attribute.
         /// </summary>
         /// <param name="test">The test to modify</param>
         void ApplyToTest(Test test);
+#endif
     }
 }
